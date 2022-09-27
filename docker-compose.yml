@@ -1,0 +1,22 @@
+version: "3.0"
+services:
+#        front:
+#                build:
+#                        context: ./kendo_front
+#                        dockerfile: Dockerfile
+#                
+#                ports:
+#                        - "3001:80"
+
+        data:
+                image: "mysql:8" 
+                environment:
+                        MYSQL_DATABASE: 'kendoDB'
+                        MYSQL_ROOT_PASSWORD: '123qwe'
+                ports:
+                        - '33060:3306'
+                volumes:
+                        - kendoVol:/var/lib/mysql 
+
+volumes:
+        kendoVol:

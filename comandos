@@ -1,0 +1,7 @@
+#Crear los dockers
+docker-compose up -d 
+#iniciar java
+./mvnw springboot:run
+
+#iniciar react
+npm start
