@@ -17,9 +17,6 @@ public class Estado {
     @Column(unique = true, nullable = false)
     private int id;
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Dojo")
-//    private List<Dojo> dojos;
-
     String nombre;
 
     @Override

@@ -1,14 +1,18 @@
 package example.KendoDemo2.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "Dojo")
@@ -21,9 +25,15 @@ public class Dojo {
     
     private String nombre, telefono, municipio, colonia, calle, numeroCalle;
 
-    @ManyToOne( fetch = FetchType.LAZY)
-    @JoinColumn(name = "estado_id")
+    float latitud, longitud;
+    
+
+    @ManyToOne( optional = false, fetch = FetchType.EAGER)
     Estado estado;
+
+    @OneToMany(mappedBy = "torneo")
+    private List<GanadorTorneoCategoria> ganadoresPorCategoria;
+    
 
 
     public Dojo(int id, String nombre) {
@@ -50,6 +60,19 @@ public class Dojo {
     }
 
     
+    public float getLatitud() {
+        return latitud;
+    }
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+    public float getLongitud() {
+        return longitud;
+    }
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
+    }
+
     public String getMunicipio() {
         return municipio;
     }

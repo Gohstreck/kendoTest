@@ -1,17 +1,19 @@
 package example.KendoDemo2.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Usuario")
-public class UsuarioModel {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +24,44 @@ public class UsuarioModel {
     private Date nacimiento;
     private boolean genero, sensei, uniforme, shinai, bokken, bogu, activo;
 
+
+    @OneToMany(mappedBy = "usuario")
+    List<GanadorTorneoCategoria> ganadorTorneoCategoria;
+    
+
+    
+
+
+    @Override
+    public String toString() {
+        return "Usuario [id=" + id + ", correo=" + correo + ", password=" + password + ", picRoute=" + picRoute
+                + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", grado=" + grado
+                + ", nacimiento=" + nacimiento + ", genero=" + genero + ", sensei=" + sensei + ", uniforme=" + uniforme
+                + ", shinai=" + shinai + ", bokken=" + bokken + ", bogu=" + bogu + ", activo=" + activo
+                + ", ganadorTorneoCategoria=" + ganadorTorneoCategoria + "]";
+    }
+    public Usuario(int id, String correo, String password, String picRoute, String nombre, String apellido,
+            String telefono, String grado, Date nacimiento, boolean genero, boolean sensei, boolean uniforme,
+            boolean shinai, boolean bokken, boolean bogu, boolean activo,
+            List<GanadorTorneoCategoria> ganadorTorneoCategoria) {
+        this.id = id;
+        this.correo = correo;
+        this.password = password;
+        this.picRoute = picRoute;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.grado = grado;
+        this.nacimiento = nacimiento;
+        this.genero = genero;
+        this.sensei = sensei;
+        this.uniforme = uniforme;
+        this.shinai = shinai;
+        this.bokken = bokken;
+        this.bogu = bogu;
+        this.activo = activo;
+        this.ganadorTorneoCategoria = ganadorTorneoCategoria;
+    }
     public int getId() {
         return id;
     }
@@ -117,6 +157,12 @@ public class UsuarioModel {
     }
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+    public List<GanadorTorneoCategoria> getGanadorTorneoCategoria() {
+        return ganadorTorneoCategoria;
+    }
+    public void setGanadorTorneoCategoria(List<GanadorTorneoCategoria> ganadorTorneoCategoria) {
+        this.ganadorTorneoCategoria = ganadorTorneoCategoria;
     }
 
     

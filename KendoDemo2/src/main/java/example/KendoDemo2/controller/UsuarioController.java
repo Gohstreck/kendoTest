@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.KendoDemo2.model.UsuarioModel;
+import example.KendoDemo2.model.Usuario;
 import example.KendoDemo2.service.UsuarioService;
 
 @RestController
@@ -20,12 +20,12 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping("get-all")
-    public ArrayList<UsuarioModel> getAll(){
+    public ArrayList<Usuario> getAll(){
         return usuarioService.getUsuarios();
     }
 
     @PostMapping("save-user")
-    public UsuarioModel save(@RequestBody UsuarioModel user){
+    public Usuario save(@RequestBody Usuario user){
         return usuarioService.save(user);
     }
 }
