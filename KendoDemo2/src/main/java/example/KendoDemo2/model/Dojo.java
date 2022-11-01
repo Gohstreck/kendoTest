@@ -31,15 +31,30 @@ public class Dojo {
     @ManyToOne( optional = false, fetch = FetchType.EAGER)
     Estado estado;
 
-    @OneToMany(mappedBy = "torneo")
-    private List<GanadorTorneoCategoria> ganadoresPorCategoria;
     
+    @OneToMany(mappedBy = "dojo")
+    private List<Torneo> torneos;
 
 
-    public Dojo(int id, String nombre) {
+    
+    public Dojo() {
+    }
+
+    public Dojo(int id, String nombre, String telefono, String municipio, String colonia, String calle,
+            String numeroCalle, float latitud, float longitud, Estado estado, List<Torneo> torneos) {
         this.id = id;
         this.nombre = nombre;
+        this.telefono = telefono;
+        this.municipio = municipio;
+        this.colonia = colonia;
+        this.calle = calle;
+        this.numeroCalle = numeroCalle;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.estado = estado;
+        this.torneos = torneos;
     }
+    
     public int getId() {
         return id;
     }
@@ -169,6 +184,12 @@ public class Dojo {
     }
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+    public List<Torneo> getTorneos() {
+        return torneos;
+    }
+    public void setTorneos(List<Torneo> torneos) {
+        this.torneos = torneos;
     }
     
     

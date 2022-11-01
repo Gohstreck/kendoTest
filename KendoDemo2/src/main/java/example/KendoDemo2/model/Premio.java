@@ -14,6 +14,10 @@ public class Premio {
 
     String nombre;
 
+    
+    public Premio() {
+    }
+
     public int getId() {
         return id;
     }

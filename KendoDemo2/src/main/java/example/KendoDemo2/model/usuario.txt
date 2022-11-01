@@ -1,0 +1,26 @@
+mysql> describe usuario;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int          | NO   | PRI | NULL    | auto_increment |
+| activo     | bit(1)       | NO   |     | NULL    |                |
+| apellido   | varchar(255) | YES  |     | NULL    |                |
+| bogu       | bit(1)       | NO   |     | NULL    |                |
+| bokken     | bit(1)       | NO   |     | NULL    |                |
+| correo     | varchar(255) | YES  |     | NULL    |                |
+| genero     | bit(1)       | NO   |     | NULL    |                |
+| grado      | varchar(255) | YES  |     | NULL    |                |
+| nacimiento | datetime(6)  | YES  |     | NULL    |                |
+| nombre     | varchar(255) | YES  |     | NULL    |                |
+| password   | varchar(255) | YES  |     | NULL    |                |
+| pic_route  | varchar(255) | YES  |     | NULL    |                |
+| sensei     | bit(1)       | NO   |     | NULL    |                |
+| shinai     | bit(1)       | NO   |     | NULL    |                |
+| telefono   | varchar(255) | YES  |     | NULL    |                |
+| uniforme   | bit(1)       | NO   |     | NULL    |                |
+| pic_id     | int          | NO   |     | NULL    |                |
+
+
+rango = date_diff('days', now(), creado);
+
+epoch(creado + days(random(0,rango -1)))

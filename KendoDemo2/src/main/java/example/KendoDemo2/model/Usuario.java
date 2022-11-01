@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,38 +22,35 @@ public class Usuario {
     @Column(unique = true, nullable = false)
     private int id;
     
-    private String correo, password, picRoute, nombre, apellido, telefono, grado ;
+    private String correo, password, nombre, apellido, telefono, grado ;
+
+
+    int picId;
+
+
     private Date nacimiento;
     private boolean genero, sensei, uniforme, shinai, bokken, bogu, activo;
 
 
     @OneToMany(mappedBy = "usuario")
     List<GanadorTorneoCategoria> ganadorTorneoCategoria;
-    
-
-    
 
 
-    @Override
-    public String toString() {
-        return "Usuario [id=" + id + ", correo=" + correo + ", password=" + password + ", picRoute=" + picRoute
-                + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", grado=" + grado
-                + ", nacimiento=" + nacimiento + ", genero=" + genero + ", sensei=" + sensei + ", uniforme=" + uniforme
-                + ", shinai=" + shinai + ", bokken=" + bokken + ", bogu=" + bogu + ", activo=" + activo
-                + ", ganadorTorneoCategoria=" + ganadorTorneoCategoria + "]";
+    public Usuario() {
     }
-    public Usuario(int id, String correo, String password, String picRoute, String nombre, String apellido,
-            String telefono, String grado, Date nacimiento, boolean genero, boolean sensei, boolean uniforme,
-            boolean shinai, boolean bokken, boolean bogu, boolean activo,
-            List<GanadorTorneoCategoria> ganadorTorneoCategoria) {
+
+
+    public Usuario(int id, String correo, String password, String nombre, String apellido, String telefono,
+            String grado, int picId, Date nacimiento, boolean genero, boolean sensei, boolean uniforme, boolean shinai,
+            boolean bokken, boolean bogu, boolean activo, List<GanadorTorneoCategoria> ganadorTorneoCategoria) {
         this.id = id;
         this.correo = correo;
         this.password = password;
-        this.picRoute = picRoute;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.grado = grado;
+        this.picId = picId;
         this.nacimiento = nacimiento;
         this.genero = genero;
         this.sensei = sensei;
@@ -62,108 +61,176 @@ public class Usuario {
         this.activo = activo;
         this.ganadorTorneoCategoria = ganadorTorneoCategoria;
     }
+
+
     public int getId() {
         return id;
     }
+
+
     public void setId(int id) {
         this.id = id;
     }
+
+
     public String getCorreo() {
         return correo;
     }
+
+
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+
     public String getPassword() {
         return password;
     }
+
+
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getPicRoute() {
-        return picRoute;
-    }
-    public void setPicRoute(String picRoute) {
-        this.picRoute = picRoute;
-    }
+
+
     public String getNombre() {
         return nombre;
     }
+
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+
     public String getApellido() {
         return apellido;
     }
+
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+
     public String getTelefono() {
         return telefono;
     }
+
+
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+
     public String getGrado() {
         return grado;
     }
+
+
     public void setGrado(String grado) {
         this.grado = grado;
     }
+
+
+    public int getPicId() {
+        return picId;
+    }
+
+
+    public void setPicId(int picId) {
+        this.picId = picId;
+    }
+
+
     public Date getNacimiento() {
         return nacimiento;
     }
+
+
     public void setNacimiento(Date nacimiento) {
         this.nacimiento = nacimiento;
     }
+
+
     public boolean isGenero() {
         return genero;
     }
+
+
     public void setGenero(boolean genero) {
         this.genero = genero;
     }
+
+
     public boolean isSensei() {
         return sensei;
     }
+
+
     public void setSensei(boolean sensei) {
         this.sensei = sensei;
     }
+
+
     public boolean isUniforme() {
         return uniforme;
     }
+
+
     public void setUniforme(boolean uniforme) {
         this.uniforme = uniforme;
     }
+
+
     public boolean isShinai() {
         return shinai;
     }
+
+
     public void setShinai(boolean shinai) {
         this.shinai = shinai;
     }
+
+
     public boolean isBokken() {
         return bokken;
     }
+
+
     public void setBokken(boolean bokken) {
         this.bokken = bokken;
     }
+
+
     public boolean isBogu() {
         return bogu;
     }
+
+
     public void setBogu(boolean bogu) {
         this.bogu = bogu;
     }
+
+
     public boolean isActivo() {
         return activo;
     }
+
+
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+
     public List<GanadorTorneoCategoria> getGanadorTorneoCategoria() {
         return ganadorTorneoCategoria;
     }
+
+
     public void setGanadorTorneoCategoria(List<GanadorTorneoCategoria> ganadorTorneoCategoria) {
         this.ganadorTorneoCategoria = ganadorTorneoCategoria;
     }
-
+    
     
 }

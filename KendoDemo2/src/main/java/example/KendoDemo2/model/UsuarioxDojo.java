@@ -12,32 +12,35 @@ import example.KendoDemo2.model.compoundKeysClasses.UsuarioDojoId;
 @Table(name = "UsuarioxDojo")
 @IdClass(UsuarioDojoId.class)
 public class UsuarioxDojo {
+    
     @Id
-    private int userId;
+    private int idUser;
+
     @Id 
-    private int dojoId;
-    public int getUserId() {
-        return userId;
+    private int idDojo;
+    
+    public int getidUser() {
+        return idUser;
     }
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setidUser(int idUser) {
+        this.idUser = idUser;
     }
-    public int getDojoId() {
-        return dojoId;
+    public int getidDojo() {
+        return idDojo;
     }
-    public void setDojoId(int dojoId) {
-        this.dojoId = dojoId;
+    public void setidDojo(int idDojo) {
+        this.idDojo = idDojo;
     }
-    public UsuarioxDojo(int userId, int dojoId) {
-        this.userId = userId;
-        this.dojoId = dojoId;
+    public UsuarioxDojo(int idUser, int idDojo) {
+        this.idUser = idUser;
+        this.idDojo = idDojo;
     }
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + userId;
-        result = prime * result + dojoId;
+        result = prime * result + idUser;
+        result = prime * result + idDojo;
         return result;
     }
     @Override
@@ -49,11 +52,14 @@ public class UsuarioxDojo {
         if (getClass() != obj.getClass())
             return false;
         UsuarioxDojo other = (UsuarioxDojo) obj;
-        if (userId != other.userId)
+        if (idUser != other.idUser)
             return false;
-        if (dojoId != other.dojoId)
+        if (idDojo != other.idDojo)
             return false;
         return true;
+    }
+    public UsuarioxDojo() {
+
     }
 
     

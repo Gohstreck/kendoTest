@@ -10,9 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "GanadorTorneoCategoria")
+
 public class GanadorTorneoCategoria {
 
     @Id
@@ -38,6 +41,10 @@ public class GanadorTorneoCategoria {
     @ManyToOne()
     @JoinColumn(name ="usuarioId", referencedColumnName = "id")
     private Usuario usuario;
+
+    
+    public GanadorTorneoCategoria() {
+    }
 
     public int getId() {
         return id;

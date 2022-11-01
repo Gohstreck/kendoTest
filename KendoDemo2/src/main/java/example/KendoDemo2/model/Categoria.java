@@ -1,24 +1,26 @@
 package example.KendoDemo2.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
 
 @Entity
+@Table(name = "Categoria")
+
 public class Categoria {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-
     private int id;
 
 
@@ -38,6 +40,11 @@ public class Categoria {
     @ManyToOne()
     @JoinColumn(name ="torneoId", referencedColumnName = "id")
     private Torneo torneo;
+
+    
+
+    public Categoria() {
+    }
 
     @Override
     public String toString() {

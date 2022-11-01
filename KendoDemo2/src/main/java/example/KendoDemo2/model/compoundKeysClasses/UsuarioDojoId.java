@@ -5,10 +5,6 @@ import java.io.Serializable;
 public class UsuarioDojoId implements Serializable{
     private int idUser, idDojo;
     
-    public UsuarioDojoId(int idUser, int idDojo){
-        this.idUser = idUser;
-        this.idDojo = idDojo;
-    }
 
     @Override
     public int hashCode() {
@@ -33,6 +29,22 @@ public class UsuarioDojoId implements Serializable{
         if (idDojo != other.idDojo)
             return false;
         return true;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public int getIdDojo() {
+        return idDojo;
+    }
+
+    public void setIdDojo(int idDojo) {
+        this.idDojo = idDojo;
     }
     
 }
