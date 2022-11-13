@@ -21,5 +21,12 @@ public interface UsuarioRepository  extends CrudRepository<Usuario, Integer>{
      */
     List<Usuario> findByCorreoAndPassword(String correo, String password);
 
-    List<Usuario> findByDojoList(int idDojo);
+        
+    /**
+     * Busca si existe un correo dentro de la base de datos.
+     * @param correo El correo del usuario
+
+     * @return El usuario especificado. null si no existe.
+     */
+    List<Usuario> findByCorreo(String correo);
 }

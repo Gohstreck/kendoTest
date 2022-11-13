@@ -25,7 +25,8 @@ public class UsuarioController {
     }
 
     @PostMapping("save-user")
-    public Usuario save(@RequestBody Usuario user){
+    public Usuario save(@RequestBody Usuario user) throws Exception{
+
         return usuarioService.save(user);
     }
 }

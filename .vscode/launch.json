@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-KendoDemo2Application<KendoDemo2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "example.KendoDemo2.KendoDemo2Application",
+            "projectName": "KendoDemo2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -17,6 +17,10 @@ public class DojoService {
         return (ArrayList<Dojo>) dojoRepository.findAll();
     }
 
+    public ArrayList<Dojo> getDojosByRegion(String region){
+        return (ArrayList<Dojo>) dojoRepository.findByRegion(region);
+    }
+
     public Dojo save(Dojo dojo){
         return (Dojo) dojoRepository.save(dojo);
     }

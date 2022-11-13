@@ -8,8 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,10 +21,15 @@ public class Usuario {
     @Column(unique = true, nullable = false)
     private int id;
     
-    private String correo, password, nombre, apellido, telefono, grado ;
-
-
+    @Column(unique = true, nullable = false)
+    private String correo;
+    
     int picId;
+
+    
+    private String password, nombre, apellido, telefono, grado ;
+
+
 
 
     private Date nacimiento;
